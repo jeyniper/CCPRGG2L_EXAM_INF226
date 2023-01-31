@@ -1,0 +1,60 @@
+import java.util.Scanner;
+public class Removeletters {
+
+    private static final String VOWELS = "aeiou";
+   
+    public static void main(String[] args) {
+        
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter Full Name: ");
+
+         // Remove letters (30 pts)
+
+        // Instructions (Important!)
+
+        // Without using arrays or loops or regular expressions, apply recursion to remove specific letters in
+        // your full name.
+
+         // 1. If the last letter of your surname is a vowel, remove all vowels in
+        // your full name.
+
+        // 2. If the last letter of your surname is a consonant, remove all
+        // consonants in your full name.
+
+        // 3. Use only lowercase letters
+        
+        // 4. Each letter should be removed one by one.
+
+        // Example:
+        // Full name is "elizer ponio jr".
+        // The output should be "lzr pn jr".
+
+        // Put your complete name in the "fullName" variable.
+        // Example:
+        // String fullName = "elizer ponio jr";
+
+        String fullName=scan.nextLine();
+        fullName=fullName.toLowerCase();
+        char lastLetter = fullName.charAt(fullName.lastIndexOf(" ") + 1);
+        System.out.print("Output: ");
+        if (VOWELS.indexOf(lastLetter) != -1) {
+            System.out.println(removeLetters(fullName));
+        } else {
+            System.out.println(removeLetters(fullName.replaceAll("[aeiou]", "")));
+        }
+    }
+    
+     public static String removeLetters(String name) {
+        
+          // Add code here
+          
+        if (name.length() == 0) return "";
+        if (VOWELS.indexOf(name.charAt(0)) == -1) {
+            return name.charAt(0) + removeLetters(name.substring(1));
+        } else {
+            return removeLetters(name.substring(1));
+        }
+    }
+    
+    
+}
